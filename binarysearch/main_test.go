@@ -13,7 +13,6 @@ func Test_BinarySearch(t *testing.T) {
 		{[]int{1, 2, 3, 4, 5, 6, 7, 8, 9}, 10, -1, false}, // not found
 		{[]int{}, 5, -1, false},                           // empty slice
 		{[]int{1}, 1, 0, true},                            // one item
-		//ToDo: what happens when the slice is not sorted?
 	}
 
 	for _, test := range tests {

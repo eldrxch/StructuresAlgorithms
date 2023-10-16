@@ -23,7 +23,6 @@ func BinarySearch(sortedData []int, itm int) (int, bool) {
 
 	lower := 0
 	upper := len(sortedData) - 1
-
 	for lower <= upper {
 		middle := (lower + upper) / 2
 		found := sortedData[middle]
