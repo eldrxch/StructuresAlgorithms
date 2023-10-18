@@ -1,21 +1,8 @@
-package main
+package algorithms
 
-import "fmt"
-
-func main() {
-	sortedData := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
-	itm := 5
-
-	index, found := BinarySearch(sortedData, itm)
-
-	if found {
-		fmt.Println("Item found at index:", index)
-		return
-	}
-
-	fmt.Println("Item not found")
-}
-
+// BinarySearch searches for an item in a sorted slice of integers.
+// Given a sorted slice of integers and an item to search for,
+// it returns the index of the item and true if the item is found.
 func BinarySearch(sortedData []int, itm int) (int, bool) {
 	if len(sortedData) == 0 {
 		return -1, false
