@@ -78,10 +78,10 @@ func (l *LinkedList) WriteString(w io.Writer) error {
 	if l.root == nil {
 		return errors.New("list is empty")
 	}
-	return writeString(l.root, w)
+	return writeNodeString(l.root, w)
 }
 
-func writeString(elm *node, w io.Writer) error {
+func writeNodeString(elm *node, w io.Writer) error {
 	var next = elm
 	for next != nil {
 		str := strconv.Itoa(next.value)
@@ -147,7 +147,7 @@ func (d *DoublyLinkedList) WriteString(w io.Writer) error {
 	if d.root == nil {
 		return errors.New("list is empty")
 	}
-	return writeString(d.root, w)
+	return writeNodeString(d.root, w)
 }
 
 // Size returns the number of items in the linked list.
