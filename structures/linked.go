@@ -124,6 +124,22 @@ func (d *DoublyLinkedList) Add(value int) {
 	addNode(d.root, value, d)
 }
 
+// Values returns all the values in the linked list.
+// It returns nil if the list is empty.
+// The values are returned in the order they were added to the list.
+func (d *DoublyLinkedList) Values() []int {
+	if d.root == nil {
+		return nil
+	}
+	var values []int
+	var next = d.root
+	for next != nil {
+		values = append(values, next.value)
+		next = next.next
+	}
+	return values
+}
+
 // Delete deletes a value from the linked list.
 // It returns an error if the list is empty or the value does not exist in the list.
 func (d *DoublyLinkedList) Delete(value int) error {
