@@ -34,7 +34,7 @@ func TestNeighborsOf(t *testing.T) {
 		lookup int
 		want   []int
 	}{
-		{[][]int{}, 9, nil},                                                  // empty graph
+		{[][]int{}, 9, []int{}},                                              // empty graph
 		{[][]int{{1, 2}}, 2, []int{1}},                                       // single edge - 1st vert
 		{[][]int{{3, 2}}, 3, []int{2}},                                       // single edge - 2nd vert
 		{[][]int{{1, 2}, {3, 2}}, 2, []int{1, 3}},                            // two edges

@@ -2,6 +2,7 @@ package structures
 
 import (
 	"bytes"
+	"reflect"
 	"testing"
 )
 
@@ -170,5 +171,31 @@ func TestDoublyWriteString(t *testing.T) {
 		if buf.String() != test.wantText {
 			t.Errorf("got %v, want %v", buf.String(), test.wantText)
 		}
+	}
+}
+
+func TestDoublyValues(t *testing.T) {
+	tests := []struct {
+		name   string
+		values []int
+		want   []int
+	}{
+		{"Empty list", []int{}, []int{}},
+		{"Single element", []int{42}, []int{42}},
+		{"Multiple elements", []int{1, 2, 3}, []int{1, 2, 3}},
+	}
+
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			l := &DoublyLinkedList{}
+			for _, v := range test.values {
+				l.Add(v)
+			}
+
+			got := l.Values()
+			if !reflect.DeepEqual(got, test.want) {
+				t.Errorf("got %v, want %v", got, test.want)
+			}
+		})
 	}
 }

@@ -125,11 +125,11 @@ func (d *DoublyLinkedList) Add(value int) {
 }
 
 // Values returns all the values in the linked list.
-// It returns nil if the list is empty.
 // The values are returned in the order they were added to the list.
+// An empty list returns an empty slice.
 func (d *DoublyLinkedList) Values() []int {
 	if d.root == nil {
-		return nil
+		return []int{}
 	}
 	var values []int
 	var next = d.root
